@@ -55,6 +55,17 @@ function renderVisualMedia (visualMedia) {
 
 // const visualMedia = document.querySelector("#house");
 
+function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+      center: { lat: -34.397, lng: 150.644 },
+      zoom: 8,
+    });
+  }
+
+
+
+
+
 function renderLocation(location) {
     const locationHtml =  `<div class="location" col-4">
             <img src="${location.image.url}"<br/>
