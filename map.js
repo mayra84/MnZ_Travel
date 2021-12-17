@@ -46,9 +46,11 @@ function initMap() {
                 console.log(error);
             })
     }
-
-    getFakeLocations()
-        // getLocations("tt0944947")
+    const query = new URLSearchParams(location.search)
+    const id = query.get("id")
+    // Pass in map.html??
+    // getFakeLocations()
+        getLocations(id)
 
         .then(function (data) {
             for (let i = 0; i < data.locations.length; i++) {
@@ -68,8 +70,8 @@ function initMap() {
 
 
 }
-function getLocations(imdbID) {
-    return fetch(`https://imdb8.p.rapidapi.com/title/get-filming-locations?tconst=${imdbID}`, {
+function getLocations(id) {
+    return fetch(`https://imdb8.p.rapidapi.com/title/get-filming-locations?tconst=${id}`, {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "imdb8.p.rapidapi.com",
@@ -580,7 +582,6 @@ function getFakeLocations() {
 }
 
 
-<<<<<<< HEAD
 
 
 
@@ -652,5 +653,3 @@ fetch("https://imdb8.p.rapidapi.com/title/get-filming-locations?tconst=tt0944947
 //             console.error(err);
 //         });
 // });
-=======
->>>>>>> 5a4a59729595221c5c5e0a1d8de9b1f35bcc6b81
