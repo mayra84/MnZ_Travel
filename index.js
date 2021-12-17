@@ -1,42 +1,117 @@
 // API KEY:AIzaSyCTyX4izBaLSUMvtZMxEjOCPo_IpDJITRs
 
 
+// ask lachlan about it tmrw
+// let aroundTheWorld = document.querySelector("#globe")
+
+
+// aroundTheWorld.addEventListener("mouseover", function () {
+//     aroundTheWorld.src = "spinning.gif".style.height
+// })
+
+// aroundTheWorld.addEventListener('mouseout', function() {
+//     aroundTheWorld.src = "3d-Earth-Globe.png"
+//   })
 
 
 
 
+const searchForm = document.querySelector("#search-form");
+searchForm.addEventListener('submit', function (event) {
+    event.preventDefault();
 
 
-// function renderVisualMedia (visualMedia) {
-//     const visualMediaHtmlArray = visualMedia.map(function(currentVisualMedia){
-//         return `<div class="media col-4">
-//             <img src="${currentVisualMedia.image}"<br/>
-//             <h2>${currentVisualMedia.title}</h2>
-//             <time datetime="\`0001\`">${currentVisualMedia.Year}</time><br>
-//             <button class="add-button" data-imdbid="${currentVisualMedia.imdbID}">Add Me!</button><br/>
-//             </div>
-//             `
+    const searchBar = document.querySelector('.search-bar')
+    const searchString = searchBar.value;
+    const urlEncodedSearchString = encodeURIComponent(searchString);
+
+    fetch("https://imdb8.p.rapidapi.com/title/find?q=" + urlEncodedSearchString, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "imdb8.p.rapidapi.com",
+            "x-rapidapi-key": "750787b786msh3494b73242ba7b4p1baff1jsnca241a92c7a4"
+        }
+    })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data)
+            visualMediaData = data
+            renderVisualMedia(data.results)
+        })
+})
+
+// fetch("https://imdb8.p.rapidapi.com/title/find?q=game%20of%20thr", {
+//         "method": "GET",
+//         "headers": {
+//             "x-rapidapi-host": "imdb8.p.rapidapi.com",
+//             "x-rapidapi-key": "750787b786msh3494b73242ba7b4p1baff1jsnca241a92c7a4"
+//         }
+//     })
+//         .then(response => {
+//             console.log(response);
+//         })
+//         .catch(err => {
+//             console.error(err);
 //         });
 
-//         results = document.querySelector("#results");
-//         results.innerHTML = movieHtmlArray.join('')
-// };
 
-// const visualMedia = document.querySelector("#house");
 
-function renderLocation(location) {
-    const locationHtmlArray = location.map(function (currentLocation) {
-        return `<div class="location" col-4">
-            <img src="${currentLocation.image}"<br/>
-            <h2>${currentLocation.title}</h2>
-            <time datetime="\`0001\`">${currentLocation.Year}</time><br>
-            <button class="add-button" data-imdbid="${currentLocation.imdbID}">Add Me!</button><br/>
+function renderVisualMedia(visualMedia) {
+    const visualMediaHtmlArray = visualMedia.map(function (currentVisualMedia) {
+        if (currentVisualMedia.titleType == "tvSeries") {
+        return `<div class="media col-4">
+        <img id = "resultsTvImage" src="${currentVisualMedia.image.url}"<br/>
+            <h2>${currentVisualMedia.title}</h2>
+            <time datetime="\`0001\`">${currentVisualMedia.year}</time><br>
+            <div class="type">${currentVisualMedia.titleType}</div>
+            <button class="add-button" data-imdbid="${currentVisualMedia.imdbID}">Explore Me!</button><br/>
             </div>
             `
+        } else if (currentVisualMedia.titleType == 'movie') {
+            return `<div class="media col-4">
+        <img id = "resultsMovieImage" src="${currentVisualMedia.image.url}"<br/>
+            <h2>${currentVisualMedia.title}</h2>
+            <time datetime="\`0001\`">${currentVisualMedia.year}</time><br>
+            <div class="type">${currentVisualMedia.titleType}</div>
+            <button class="add-button" data-imdbid="${currentVisualMedia.imdbID}">Explore Me!</button><br/>
+            </div>
+            `
+        } else {
+            console.log(currentVisualMedia)
+            return ""
+        }
     });
 
     results = document.querySelector("#results");
-    results.innerHTML = locationHtmlArray.join('')
+    results.innerHTML = visualMediaHtmlArray.join('')
+};
+
+// const visualMedia = document.querySelector("#house");
+
+function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: -34.397, lng: 150.644 },
+        zoom: 8,
+    });
+}
+
+
+
+
+
+function renderLocation(location) {
+    const locationHtml = `<div class="location" col-4">
+            <img src="${location.image.url}"<br/>
+            <h2>${location.title}</h2>
+            <time datetime="\`0001\`">${location.year}</time><br>
+            <button class="add-button" data-imdbid="${location.imdbID}">Add Me!</button><br/>
+            </div>
+            `
+
+    results = document.querySelector("#results");
+    results.innerHTML = locationHtml
 };
 
 
@@ -46,50 +121,40 @@ function renderLocation(location) {
 
 
 
-
-
-
-
-
 document.addEventListener('DOMContentLoaded', function (event) {
 
-    //     fetch("https://imdb8.p.rapidapi.com/title/find?q=game%20of%20thr", {
-    // 	"method": "GET",
-    // 	"headers": {
-    // 		"x-rapidapi-host": "imdb8.p.rapidapi.com",
-    // 		"x-rapidapi-key": "750787b786msh3494b73242ba7b4p1baff1jsnca241a92c7a4"
-    // 	}
-    // })
-    // .then(response => {
-    // 	console.log(response);
-    // })
-    // .catch(err => {
-    // 	console.error(err);
-    // });
 
-
-
-
-    fetch("https://imdb8.p.rapidapi.com/title/get-filming-locations?tconst=tt0944947", {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-host": "imdb8.p.rapidapi.com",
-            "x-rapidapi-key": "750787b786msh3494b73242ba7b4p1baff1jsnca241a92c7a4"
+    document.addEventListener('click', function(event) {
+        console.log(event.target)
+        if (event.target.classList.contains('add-button')) {
+            let movieID = event.target.dataset.imdbid
+            saveToWatchList(movieID)
         }
-    })
-        .then(response => {
+      });
 
-            return response.json()
-        })
-        .then(function (data) {
-            console.log(data.base);
-            // .base.title
-            // .locations[20].location
-            renderLocation(data.base)
 
-        })
-        .catch(err => {
-            console.error(err);
-        });
+
+
+    // fetch("https://imdb8.p.rapidapi.com/title/get-filming-locations?tconst=tt0944947", {
+    //     "method": "GET",
+    //     "headers": {
+    //         "x-rapidapi-host": "imdb8.p.rapidapi.com",
+    //         "x-rapidapi-key": "750787b786msh3494b73242ba7b4p1baff1jsnca241a92c7a4"
+    //     }
+    // })
+    //     .then(response => {
+
+    //         return response.json()
+    //     })
+    //     .then(function (data) {
+    //         console.log(data.base);
+    //         // .base.title
+    //         // .locations[20].location
+    //         renderLocation(data.base)
+
+    //     })
+    //     .catch(err => {
+    //         console.error(err);
+    //     });
 
 });

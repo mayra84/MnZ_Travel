@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+        crossorigin="anonymous"
+      />
+    
+        <title>Movie Travel</title>
+    </head>
+    <body>
+
+        <!--!!!!!!!!!!!!!!!!!!SIDE BAR DOESN'T WORK!!!!!!!!!!!!!!-->
+         <!-- <header id = "header" class="p-3 bg-dark text-white">
+            <div class="container">
+              <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"> 
+                <a href="index.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                  <!--changes to a gif when you hover mouse on it, also is another way to get to home page when clicked-->
+                  <!-- <img id = "globe" class="bi me-2" width="40" height="40" src= "3d-Earth-Globe.png" aria-label="Bootstrap">
+                  <span class="fs-4">Movie Travel</span>
+                </a>
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                  <li><a href="index.html" class="nav-link px-2 text-secondary">Home</a></li>
+                  <li><a href="#" class="nav-link px-2 text-white">Saved Locations</a></li>
+                  <li><a href="#" class="nav-link px-2 text-white">About Us</a></li>
+                </ul>
+                <form id = "searchWhole"class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3"> -->
+                  <!--works with enter instead of button: button or not button or possibly both?-->
+                  <!-- <input id = "searchInput" type="search" class="form-control form-control-dark" placeholder="Search..." 
+                  >
+                </form>
+              </div>
+            </div>
+          </header>  --> 
+
+          <div class="d-flex flex-column nk-0 p-3 bg-light" style="width: 280px;">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+              <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+              <span class="fs-4">Sidebar</span>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+              <li class="nav-item">
+                <a href="#" class="nav-link active" aria-current="page">
+                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link link-dark">
+                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+                  Dashboard
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link link-dark">
+                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                  Orders
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link link-dark">
+                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
+                  Products
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link link-dark">
+                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+                  Customers
+                </a>
+              </li>
+            </ul>
+            <hr>
+            <div class="dropdown">
+              <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                <strong>mdo</strong>
+              </a>
+              <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                <li><a class="dropdown-item" href="#">New project...</a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Sign out</a></li>
+              </ul>
+            </div>
+          </div>
+        <!--temporary name-->
+
+        <div class="row g-5">
+            <div class="col-md-8">
+              <h3 class="pb-4 mb-4 fst-italic border-bottom">
+                From the Firehose
+              </h3>
+        
+              <article class="blog-post">
+                <h2 class="blog-post-title">Sample blog post</h2>
+                <p class="blog-post-meta">January 1, 2021 by <a href="#">Mark</a></p>
+        
+                <p>This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, lists, tables, images, code, and more are all supported as expected.</p>
+                <hr>
+                <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
+                <h2>Blockquotes</h2>
+                <p>This is an example blockquote in action:</p>
+                <blockquote class="blockquote">
+                  <p>Quoted text goes here.</p>
+                </blockquote>
+                <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
+                <h3>Example lists</h3>
+                <p>This is some additional paragraph placeholder content. It's a slightly shorter version of the other highly repetitive body text used throughout. This is an example unordered list:</p>
+                <ul>
+                  <li>First list item</li>
+                  <li>Second list item with a longer description</li>
+                  <li>Third list item to close it out</li>
+                </ul>
+                <p>And this is an ordered list:</p>
+                <ol>
+                  <li>First list item</li>
+                  <li>Second list item with a longer description</li>
+                  <li>Third list item to close it out</li>
+                </ol>
+                <p>And this is a definition list:</p>
+                <dl>
+                  <dt>HyperText Markup Language (HTML)</dt>
+                  <dd>The language used to describe and define the content of a Web page</dd>
+                  <dt>Cascading Style Sheets (CSS)</dt>
+                  <dd>Used to describe the appearance of Web content</dd>
+                  <dt>JavaScript (JS)</dt>
+                  <dd>The programming language used to build advanced Web sites and applications</dd>
+                </dl>
+                <h2>Inline HTML elements</h2>
+                <p>HTML defines a long list of available inline tags, a complete list of which can be found on the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">Mozilla Developer Network</a>.</p>
+                <ul>
+                  <li><strong>To bold text</strong>, use <code class="language-plaintext highlighter-rouge">&lt;strong&gt;</code>.</li>
+                  <li><em>To italicize text</em>, use <code class="language-plaintext highlighter-rouge">&lt;em&gt;</code>.</li>
+                  <li>Abbreviations, like <abbr title="HyperText Markup Langage">HTML</abbr> should use <code class="language-plaintext highlighter-rouge">&lt;abbr&gt;</code>, with an optional <code class="language-plaintext highlighter-rouge">title</code> attribute for the full phrase.</li>
+                  <li>Citations, like <cite>— Mark Otto</cite>, should use <code class="language-plaintext highlighter-rouge">&lt;cite&gt;</code>.</li>
+                  <li><del>Deleted</del> text should use <code class="language-plaintext highlighter-rouge">&lt;del&gt;</code> and <ins>inserted</ins> text should use <code class="language-plaintext highlighter-rouge">&lt;ins&gt;</code>.</li>
+                  <li>Superscript <sup>text</sup> uses <code class="language-plaintext highlighter-rouge">&lt;sup&gt;</code> and subscript <sub>text</sub> uses <code class="language-plaintext highlighter-rouge">&lt;sub&gt;</code>.</li>
+                </ul>
+                <p>Most of these elements are styled by browsers with few modifications on our part.</p>
+                <h2>Heading</h2>
+                <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
+                <h3>Sub-heading</h3>
+                <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
+                <pre><code>Example code block</code></pre>
+                <p>This is some additional paragraph placeholder content. It's a slightly shorter version of the other highly repetitive body text used throughout.</p>
+              </article>
+        
+              <article class="blog-post">
+                <h2 class="blog-post-title">Another blog post</h2>
+                <p class="blog-post-meta">December 23, 2020 by <a href="#">Jacob</a></p>
+        
+                <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
+                <blockquote>
+                  <p>Longer quote goes here, maybe with some <strong>emphasized text</strong> in the middle of it.</p>
+                </blockquote>
+                <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
+                <h3>Example table</h3>
+                <p>And don't forget about tables in these posts:</p>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Upvotes</th>
+                      <th>Downvotes</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Alice</td>
+                      <td>10</td>
+                      <td>11</td>
+                    </tr>
+                    <tr>
+                      <td>Bob</td>
+                      <td>4</td>
+                      <td>3</td>
+                    </tr>
+                    <tr>
+                      <td>Charlie</td>
+                      <td>7</td>
+                      <td>9</td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td>Totals</td>
+                      <td>21</td>
+                      <td>23</td>
+                    </tr>
+                  </tfoot>
+                </table>
+        
+                <p>This is some additional paragraph placeholder content. It's a slightly shorter version of the other highly repetitive body text used throughout.</p>
+              </article>
+        
+              <article class="blog-post">
+                <h2 class="blog-post-title">New feature</h2>
+                <p class="blog-post-meta">December 14, 2020 by <a href="#">Chris</a></p>
+        
+                <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
+                <ul>
+                  <li>First list item</li>
+                  <li>Second list item with a longer description</li>
+                  <li>Third list item to close it out</li>
+                </ul>
+                <p>This is some additional paragraph placeholder content. It's a slightly shorter version of the other highly repetitive body text used throughout.</p>
+              </article>
+        
+              <nav class="blog-pagination" aria-label="Pagination">
+                <a class="btn btn-outline-primary" href="#">Older</a>
+                <a class="btn btn-outline-secondary disabled">Newer</a>
+              </nav>
+        
+            </div>
+        
+            <div class="col-md-4">
+              <div class="position-sticky" style="top: 2rem;">
+                <div class="p-4 mb-3 bg-light rounded">
+                  <h4 class="fst-italic">About</h4>
+                  <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p>
+                </div>
+        
+                <div class="p-4">
+                  <h4 class="fst-italic">Archives</h4>
+                  <ol class="list-unstyled mb-0">
+                    <li><a href="#">March 2021</a></li>
+                    <li><a href="#">February 2021</a></li>
+                    <li><a href="#">January 2021</a></li>
+                    <li><a href="#">December 2020</a></li>
+                    <li><a href="#">November 2020</a></li>
+                    <li><a href="#">October 2020</a></li>
+                    <li><a href="#">September 2020</a></li>
+                    <li><a href="#">August 2020</a></li>
+                    <li><a href="#">July 2020</a></li>
+                    <li><a href="#">June 2020</a></li>
+                    <li><a href="#">May 2020</a></li>
+                    <li><a href="#">April 2020</a></li>
+                  </ol>
+                </div>
+        
+                <div class="p-4">
+                  <h4 class="fst-italic">Elsewhere</h4>
+                  <ol class="list-unstyled">
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        <!-- <h2 id= "Welcome">Welcome to Movie Travel</h2>
+        <h4 id = "instructions">Type the name of a movie into the search bar and we'll find where it was filmed!</h4>
+        <div id="results"></div> -->
+
+
+    </body>
+</html>
