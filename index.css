@@ -1,0 +1,59 @@
+#header {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* 
+#Welcome {
+   font-family: 'Rubik', sans-serif;
+    padding-top: 30px;
+    padding-right: 40px;
+    text-align: right;
+    margin: 0px; */
+   
+/* } */
+
+/* #instructions {
+    display: flex;
+    font-family: 'Rubik', sans-serif;
+    padding-right: 40px;
+    text-align: right;
+    font-style: italic;
+    margin: 0px;
+    justify-content: right;
+    flex-wrap: wrap;
+} */
+
+#plsWork {
+    display: flex;
+    justify-content: left;
+}
+
+.container {
+    color: black
+}
+
+#map {
+    height: 55%;
+    width: 50%;
+}
+
+html, body {
+    height: 100%;
+    margin: 10;
+    padding: 0;
+  }
+
+
+#resultsTvImage {
+    height: 200px;
+    width: 200px;
+}
+
+#resultsMovieImage {
+    height: 200px;
+    width: 200px;
+}
+
+
+
+
