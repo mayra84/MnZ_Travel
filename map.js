@@ -46,9 +46,11 @@ function initMap() {
                 console.log(error);
             })
     }
-
-    getFakeLocations()
-        // getLocations("tt0944947")
+    const query = new URLSearchParams(location.search)
+    const id = query.get("id")
+    // Pass in map.html??
+    // getFakeLocations()
+        getLocations(id)
 
         .then(function (data) {
             for (let i = 0; i < data.locations.length; i++) {
@@ -68,8 +70,8 @@ function initMap() {
 
 
 }
-function getLocations(imdbID) {
-    return fetch(`https://imdb8.p.rapidapi.com/title/get-filming-locations?tconst=${imdbID}`, {
+function getLocations(id) {
+    return fetch(`https://imdb8.p.rapidapi.com/title/get-filming-locations?tconst=${id}`, {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "imdb8.p.rapidapi.com",
@@ -580,3 +582,74 @@ function getFakeLocations() {
 }
 
 
+
+
+
+fetch("https://imdb8.p.rapidapi.com/title/get-filming-locations?tconst=tt0944947", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "imdb8.p.rapidapi.com",
+            "x-rapidapi-key": "750787b786msh3494b73242ba7b4p1baff1jsnca241a92c7a4"
+        }
+    })
+        .then(response => {
+
+            return response.json()
+        })
+        .then(function (data) {
+            console.log(data.locations);
+            // .base.title
+            // .locations[20].location
+            renderLocation(data.base)
+
+        })
+        .catch(err => {
+            console.error(err);
+        });
+
+
+
+
+
+
+// function renderLocation(location) {
+//     const locationHtmlArray = location.map(function (currentLocation) {
+//         return `<div class="location" col-4">
+//             <img src="${currentLocation.image}"<br/>
+//             <h2>${currentLocation.title}</h2>
+//             <time datetime="\`0001\`">${currentLocation.Year}</time><br>
+//             <button class="add-button" data-imdbid="${currentLocation.imdbID}">Add Me!</button><br/>
+//             </div>
+//             `
+//     });
+
+//     results = document.querySelector("#results");
+//     results.innerHTML = locationHtmlArray.join('')
+// };
+
+
+// document.addEventListener('DOMContentLoaded', function (event) {
+
+
+//     fetch("https://imdb8.p.rapidapi.com/title/get-filming-locations?tconst=tt0944947", {
+//         "method": "GET",
+//         "headers": {
+//             "x-rapidapi-host": "imdb8.p.rapidapi.com",
+//             "x-rapidapi-key": "750787b786msh3494b73242ba7b4p1baff1jsnca241a92c7a4"
+//         }
+//     })
+//         .then(response => {
+
+//             return response.json()
+//         })
+//         .then(function (data) {
+//             console.log(data.base);
+//             // .base.title
+//             // .locations[20].location
+//             renderLocation(data.base)
+
+//         })
+//         .catch(err => {
+//             console.error(err);
+//         });
+// });

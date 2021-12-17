@@ -15,7 +15,7 @@ searchForm.addEventListener('submit', function (event) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "imdb8.p.rapidapi.com",
-            "x-rapidapi-key": "750787b786msh3494b73242ba7b4p1baff1jsnca241a92c7a4"
+            "x-rapidapi-key": "d12441956bmshf4bbccccda3f093p160a26jsn3124647e03f2"
         }
     })
         .then(function (response) {
@@ -47,13 +47,14 @@ searchForm.addEventListener('submit', function (event) {
 
 function renderVisualMedia(visualMedia) {
     const visualMediaHtmlArray = visualMedia.map(function (currentVisualMedia) {
+        const id = currentVisualMedia.id.replace(/\/title\/(tt\d+).*/,"$1")
         if (currentVisualMedia.titleType == "tvSeries") {
         return `<div class="media col-4">
         <img src="${currentVisualMedia.image.url}"<br/>
             <h2>${currentVisualMedia.title}</h2>
             <time datetime="\`0001\`">${currentVisualMedia.year}</time><br>
             <div class="type">${currentVisualMedia.titleType}</div>
-            <button class="add-button" data-imdbid="${currentVisualMedia.imdbID}">Explore Me!</button><br/>
+            <a href="/map.html?id=${id}" class="explore-button">Explore Me!</a><br/>
             </div>
             `
         } else if (currentVisualMedia.titleType == 'movie') {
@@ -62,7 +63,7 @@ function renderVisualMedia(visualMedia) {
             <h2>${currentVisualMedia.title}</h2>
             <time datetime="\`0001\`">${currentVisualMedia.year}</time><br>
             <div class="type">${currentVisualMedia.titleType}</div>
-            <button class="add-button" data-imdbid="${currentVisualMedia.imdbID}">Explore Me!</button><br/>
+            <a href="/map.html?id=${id}" class="explore-button">Explore Me!</a><br/>
             </div>
             `
         } else {
@@ -70,6 +71,7 @@ function renderVisualMedia(visualMedia) {
             return ""
         }
     });
+   
 
     results = document.querySelector("#results");
     results.innerHTML = visualMediaHtmlArray.join('')
@@ -93,7 +95,7 @@ function renderLocation(location) {
             <img src="${location.image.url}"<br/>
             <h2>${location.title}</h2>
             <time datetime="\`0001\`">${location.year}</time><br>
-            <button class="add-button" data-imdbid="${location.imdbID}">Add Me!</button><br/>
+            <button class="explore-button" data-imdbid="${location.imdbID}">Add Me!</button><br/>
             </div>
             `
 
@@ -113,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     document.addEventListener('click', function(event) {
         console.log(event.target)
-        if (event.target.classList.contains('add-button')) {
+        if (event.target.classList.contains('explore-button')) {
             let movieID = event.target.dataset.imdbid
             saveToWatchList(movieID)
         }
