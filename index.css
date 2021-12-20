@@ -188,3 +188,17 @@ a{
 }
 
 
+#resultsMovieImage {
+  width: 150px;
+  height: 200px;
+}
+
+#resultsTvImage {
+  width: 150px;
+  height: 200px;
+}
+
+#results {
+  display: flex;
+  justify-content: center;
+}
