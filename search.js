@@ -15,11 +15,7 @@ searchForm.addEventListener('submit', function (event) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "imdb8.p.rapidapi.com",
-<<<<<<< HEAD:search.js
             "x-rapidapi-key": "8f32460e07msh82e48d9017e28a2p1a1156jsncedaa79245ad"
-=======
-            "x-rapidapi-key": "d12441956bmshf4bbccccda3f093p160a26jsn3124647e03f2"
->>>>>>> main:mayra's folder/index.js
         }
     })
         .then(function (response) {
