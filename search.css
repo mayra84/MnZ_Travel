@@ -1,15 +1,33 @@
-#map {
-    height: 100%;
-}
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
+body {
+    background-image: url(bubbleBackground.png);
+}
 
 
 img {
     height: 200px;
     width: 200px;
+    border-radius: 5%;
+}
+
+#search-form {
+/* border: solid red 2px; */
+display: flex;
+align-items: center;
+box-shadow: 0px 2px 12px -7px maroon;
+margin-top: 40px;
+margin-left: 55px;
+width: 84%;
+}
+
+.btn {
+    color: white;
+    background-color: maroon;
+}
+
+
+#results {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px 10px 70px;
 }
