@@ -54,6 +54,12 @@ html, body {
     width: 200px;
 }
 
+h3 {
+    font-family: 'Rubik', sans-serif;
+}
 
+.display-2 {
+    padding-top: 30px;
 
+}
 
