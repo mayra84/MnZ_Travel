@@ -10,7 +10,7 @@ function renderVisualMedia(visualMedia) {
             <h2>${visualMedia.title}</h2>
             <time datetime="\`0001\`">${visualMedia.year}</time><br>
             <div class="type">${visualMedia.titleType}</div>
-            <a href="/map.html?id=${id}" class="explore-button">Explore Me!</a><br/>
+            
             </div>
             `
 
@@ -143,22 +143,40 @@ document.addEventListener('DOMContentLoaded', function (event) {
 // Print places on map page
 // Does code for 
 // change list item for accordion 
+let placeID = 1
 function printPlace (name, lat, lng) {
     
     const placesList = document.querySelector("#list-of-places")
     
     
-        const listItem =  document.createElement("li")
-        listItem.innerHTML = name
+        const listItem =  document.createElement("div")
+        listItem.classList.add("accordion-item")
         placesList.appendChild(listItem)
         console.log(location)
         getWebcam(lat, lng)
         .then(webcams => {
+            
             const webcamHTML = webcams.map(cam => {
                 console.log(cam)
-                return `<img src="${cam.image.current.preview}">`
-            })
-            listItem.innerHTML += webcamHTML
+                return `<img src="${cam.image.current.preview}">
+                
+                `
+            }) 
+            const locationHTML = `
+            
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#place-${placeID}"  aria-controls="place-${placeID}">
+        ${name} (${webcams.length} webcams)
+      </button>
+    </h2>
+    <div id="place-${placeID}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body d-flex flex-wrap">
+        ${webcamHTML}
+      </div>
+    </div>
+    `
+            listItem.innerHTML += locationHTML
+            placeID ++
         })
 }
 

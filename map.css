@@ -15,6 +15,9 @@ ul {
 }
 
 #results {
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
 
     /* height: 250px;
     width: 250px
