@@ -12,6 +12,7 @@ body {
 
 h4 {
     font-size: 30px;
+
 }
 
 .mainButton {
@@ -46,5 +47,5 @@ ul {
 
 #movie-img {
     height: 400px;
-    width: 300px
+    width: 300
 }

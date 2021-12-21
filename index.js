@@ -133,28 +133,3 @@ document.addEventListener('DOMContentLoaded', function (event) {
       });
 
 
-
-
-    // fetch("https://imdb8.p.rapidapi.com/title/get-filming-locations?tconst=tt0944947", {
-    //     "method": "GET",
-    //     "headers": {
-    //         "x-rapidapi-host": "imdb8.p.rapidapi.com",
-    //         "x-rapidapi-key": "750787b786msh3494b73242ba7b4p1baff1jsnca241a92c7a4"
-    //     }
-    // })
-    //     .then(response => {
-
-    //         return response.json()
-    //     })
-    //     .then(function (data) {
-    //         console.log(data.base);
-    //         // .base.title
-    //         // .locations[20].location
-    //         renderLocation(data.base)
-
-    //     })
-    //     .catch(err => {
-    //         console.error(err);
-    //     });
-
-});

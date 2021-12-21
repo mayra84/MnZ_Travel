@@ -41,7 +41,9 @@ function initMap() {
         const infowindow = new google.maps.InfoWindow({
             content: contentString,
         });
-        infoWindows.push(infowindow)
+
+infoWindows.push(infowindow)
+
         marker.addListener("click", () => {
             infoWindows.forEach(i => i.close())
             infowindow.open({
@@ -71,8 +73,10 @@ function initMap() {
                 const lat = response.data.results[0].geometry.location.lat;
                 const lng = response.data.results[0].geometry.location.lng;
 
+
                
                 printPlace(location, lat, lng)
+
                 addMarker({ lat: lat, lng: lng }, movie, location)
 
             })
@@ -710,6 +714,28 @@ function getFakeLocations() {
 
 
 
+
+fetch("https://imdb8.p.rapidapi.com/title/get-filming-locations?tconst=tt0944947", {
+    "method": "GET",
+    "headers": {
+        "x-rapidapi-host": "imdb8.p.rapidapi.com",
+        "x-rapidapi-key": "750787b786msh3494b73242ba7b4p1baff1jsnca241a92c7a4"
+    }
+})
+    .then(response => {
+
+        return response.json()
+    })
+    .then(function (data) {
+        console.log(data.locations);
+        // .base.title
+        // .locations[20].location
+        renderLocation(data.base)
+
+    })
+    .catch(err => {
+        console.error(err);
+    });
 
 
 
