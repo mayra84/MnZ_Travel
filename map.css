@@ -13,3 +13,15 @@ html, body {
 ul {
     border: 2px solid red;
 }
+
+#results {
+
+    /* height: 250px;
+    width: 250px
+     */
+}
+
+#movie-img {
+    height: 350px;
+    width: 300px
+}

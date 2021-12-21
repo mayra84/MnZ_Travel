@@ -112,12 +112,12 @@ function renderLocation(location) {
 
 document.addEventListener('DOMContentLoaded', function (event) {
 
-
+    // Maybe have a "save destination"????
     document.addEventListener('click', function(event) {
         console.log(event.target)
         if (event.target.classList.contains('explore-button')) {
-            let movieID = event.target.dataset.imdbid
-            saveToWatchList(movieID)
+            let movieID = event.target.dataset.id
+            renderMovieToMap(movieID)
         }
       });
 
@@ -145,3 +145,27 @@ document.addEventListener('DOMContentLoaded', function (event) {
     //     });
 
 });
+
+
+// function renderMovieToMap (movieID) {
+    
+//     const movie = movieData.find(function(currentMovie){ 
+//         return currentMovie.imdbID == movieID; 
+// });
+
+// let watchlistJSON = localStorage.getItem('watchlist');
+// let watchlist = JSON.parse(watchlistJSON);
+
+//     if (watchlist == null) {
+//         watchlist = []
+//     }
+
+//     watchlist.push(movie);
+//     watchlistJSON = JSON.stringify(watchlist);
+//     localStorage.setItem('watchlist', watchlistJSON);
+
+//     console.log(watchlist)
+
+//     console.log(movie)
+    
+// }
