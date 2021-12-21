@@ -1,13 +1,13 @@
 #map {
-    height: 60%;
-    margin: 100px;
+    height: 90%;
+    width: 79%;
+    margin: 100px 10px 10px 100px;
+    padding: 300px;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
+body {
+    background-image: url(bubbleBackground.png);
+}
 
 
 ul {

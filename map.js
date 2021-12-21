@@ -1,5 +1,3 @@
-// API KEY:AIzaSyCTyX4izBaLSUMvtZMxEjOCPo_IpDJITRs
-
 
 
 
@@ -25,29 +23,40 @@ function renderVisualMedia(visualMedia) {
 
 //function for maps, sets viewpoint at "center"
 function initMap() {
+    let infoWindows = []
     map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: 0, lng: 0 },
-        zoom: 1,
+        center: ({ lat: 0, lng: 0 }),
+        zoom: 2,
     });
 
 
-
-
-    //Set Markers
-    function addMarker(location) {
+    //Set Marker function
+    function addMarker(location, movie, name) {
         const marker = new google.maps.Marker({
             position: location,
-            map: map
+            title: query,
+            map: map,
         })
-
-        
+        const contentString = `<div class="locationName">${name}</div>`
+        const infowindow = new google.maps.InfoWindow({
+            content: contentString,
+        });
+        infoWindows.push(infowindow)
+        marker.addListener("click", () => {
+            infoWindows.forEach(i => i.close())
+            infowindow.open({
+                anchor: marker,
+                map,
+                shouldFocus: false,
+            });
+        });
     }
 
 
     //Callback function
 
     //Geocode API used here to get latitude and Longitude
-    function geocode(location) {
+    function geocode(location, movie) {
         // const location = '22 Main st Boston MA';
         axios.get("https://maps.googleapis.com/maps/api/geocode/json", {
             params: {
@@ -57,13 +66,14 @@ function initMap() {
         })
             .then(function (response) {
                 //log response
-                console.log(response.data.results);
+                console.log(response.data.results[0].formatted_address);
 
                 const lat = response.data.results[0].geometry.location.lat;
                 const lng = response.data.results[0].geometry.location.lng;
 
-                addMarker({ lat: lat, lng: lng })
+               
                 printPlace(location, lat, lng)
+                addMarker({ lat: lat, lng: lng }, movie, location)
 
             })
             .catch(function (error) {
@@ -73,18 +83,15 @@ function initMap() {
     const query = new URLSearchParams(location.search)
     const id = query.get("id")
     // Pass in map.html??
-    getFakeLocations()
-    // getLocations(id)
+    // getFakeLocations()
+    getLocations(id)
 
         .then(function (data) {
             // Use data.base to display movie information
             renderVisualMedia(data.base)
             for (let i = 0; i < data.locations.length; i++) {
                 console.log(data.locations[i].location);
-                
-                geocode(data.locations[i].location)
-                
-                
+                geocode(data.locations[i].location, data.base)
                 // addMarker(data.locations[i].location)
 
             }
@@ -95,9 +102,6 @@ function initMap() {
         .catch(err => {
             console.error(err);
         });
-
-
-
 
 }
 function getLocations(id) {
@@ -707,27 +711,6 @@ function getFakeLocations() {
 
 
 
-// fetch("https://imdb8.p.rapidapi.com/title/get-filming-locations?tconst=tt0944947", {
-//         "method": "GET",
-//         "headers": {
-//             "x-rapidapi-host": "imdb8.p.rapidapi.com",
-//             "x-rapidapi-key": "750787b786msh3494b73242ba7b4p1baff1jsnca241a92c7a4"
-//         }
-//     })
-//         .then(response => {
-
-//             return response.json()
-//         })
-//         .then(function (data) {
-//             console.log(data.locations);
-//             // .base.title
-//             // .locations[20].location
-//             renderLocation(data.base)
-
-//         })
-//         .catch(err => {
-//             console.error(err);
-//         });
 
 
 
