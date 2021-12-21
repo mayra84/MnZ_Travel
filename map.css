@@ -1,7 +1,15 @@
 #map {
-    height: 50%;
-    width: 50%;
-    margin: 100px;
+    height: 90%;
+    width: 79%;
+    margin: 100px 10px 10px 100px;
     padding: 300px;
 }
 
+body {
+    background-image: url(bubbleBackground.png);
+}
+
+
+h4 {
+    font-size: 30px;
+}
