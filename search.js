@@ -87,9 +87,6 @@ function initMap() {
 }
 
 
-
-
-
 function renderLocation(location) {
     const locationHtml = `<div class="location" col-4">
             <img src="${location.image.url}"<br/>
