@@ -30,5 +30,17 @@ img {
     border-right: 1px solid #333333;
     border-bottom: 1px solid #333333;
     border-left: 1px solid #CCCCCC;
-  }
+}
 
+#results {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px 10px 70px;
+}
+
+.logo {
+    text-decoration: none;
+    color: gray;
+    margin-left: 30px;
+    font-size: 20px;
+}
