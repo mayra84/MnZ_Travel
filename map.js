@@ -10,7 +10,6 @@ function renderVisualMedia(visualMedia) {
             <h2>${visualMedia.title}</h2>
             <time datetime="\`0001\`">${visualMedia.year}</time><br>
             <div class="type">${visualMedia.titleType}</div>
-            <a href="/map.html?id=${id}" class="explore-button">Explore Me!</a><br/>
             </div>
             `
 
@@ -40,9 +39,7 @@ function initMap() {
         const infowindow = new google.maps.InfoWindow({
             content: contentString,
         });
-
-infoWindows.push(infowindow)
-
+        infoWindows.push(infowindow)
         marker.addListener("click", () => {
             infoWindows.forEach(i => i.close())
             infowindow.open({
@@ -73,9 +70,7 @@ infoWindows.push(infowindow)
                 const lng = response.data.results[0].geometry.location.lng;
 
 
-               
                 printPlace(location, lat, lng)
-
                 addMarker({ lat: lat, lng: lng }, movie, location)
 
             })
@@ -146,22 +141,40 @@ document.addEventListener('DOMContentLoaded', function (event) {
 // Print places on map page
 // Does code for 
 // change list item for accordion 
-function printPlace (name, lat, lng) {
-    
+let placeID = 1
+function printPlace(name, lat, lng) {
+
     const placesList = document.querySelector("#list-of-places")
-    
-    
-        const listItem =  document.createElement("li")
-        listItem.innerHTML = name
-        placesList.appendChild(listItem)
-        console.log(location)
-        getWebcam(lat, lng)
+
+
+    const listItem = document.createElement("div")
+    listItem.classList.add("accordion-item")
+    placesList.appendChild(listItem)
+    console.log(location)
+    getWebcam(lat, lng)
         .then(webcams => {
+
             const webcamHTML = webcams.map(cam => {
                 console.log(cam)
-                return `<img src="${cam.image.current.preview}">`
+                return `<img src="${cam.image.current.preview}">
+                
+                `
             })
-            listItem.innerHTML += webcamHTML
+            const locationHTML = `
+            
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#place-${placeID}"  aria-controls="place-${placeID}">
+        ${name} (${webcams.length} webcams)
+      </button>
+    </h2>
+    <div id="place-${placeID}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body d-flex flex-wrap">
+        ${webcamHTML}
+      </div>
+    </div>
+    `
+            listItem.innerHTML += locationHTML
+            placeID++
         })
 }
 
@@ -202,10 +215,10 @@ function getWebcam(lat, lng) {
             "x-rapidapi-key": "750787b786msh3494b73242ba7b4p1baff1jsnca241a92c7a4"
         }
     })
-    .then(res => res.json())
+        .then(res => res.json())
         .then(response => {
             console.log(response);
-            return response.result.webcams 
+            return response.result.webcams
         })
         .catch(err => {
             console.error(err);
@@ -714,24 +727,3 @@ function getFakeLocations() {
 
 
 
-fetch("https://imdb8.p.rapidapi.com/title/get-filming-locations?tconst=tt0944947", {
-    "method": "GET",
-    "headers": {
-        "x-rapidapi-host": "imdb8.p.rapidapi.com",
-        "x-rapidapi-key": "750787b786msh3494b73242ba7b4p1baff1jsnca241a92c7a4"
-    }
-})
-    .then(response => {
-
-        return response.json()
-    })
-    .then(function (data) {
-        console.log(data.locations);
-        // .base.title
-        // .locations[20].location
-        renderLocation(data.base)
-
-    })
-    .catch(err => {
-        console.error(err);
-    });

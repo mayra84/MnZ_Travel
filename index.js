@@ -1,20 +1,3 @@
-// API KEY:8f32460e07msh82e48d9017e28a2p1a1156jsncedaa79245ad
-
-
-// ask lachlan about it tmrw
-// let aroundTheWorld = document.querySelector("#globe")
-
-
-// aroundTheWorld.addEventListener("mouseover", function () {
-//     aroundTheWorld.src = "spinning.gif".style.height
-// })
-
-// aroundTheWorld.addEventListener('mouseout', function() {
-//     aroundTheWorld.src = "3d-Earth-Globe.png"
-//   })
-
-
-
 
 const searchForm = document.querySelector("#search-form");
 searchForm.addEventListener('submit', function (event) {
@@ -42,26 +25,11 @@ searchForm.addEventListener('submit', function (event) {
         })
 })
 
-// fetch("https://imdb8.p.rapidapi.com/title/find?q=game%20of%20thr", {
-//         "method": "GET",
-//         "headers": {
-//             "x-rapidapi-host": "imdb8.p.rapidapi.com",
-//             "x-rapidapi-key": "750787b786msh3494b73242ba7b4p1baff1jsnca241a92c7a4"
-//         }
-//     })
-//         .then(response => {
-//             console.log(response);
-//         })
-//         .catch(err => {
-//             console.error(err);
-//         });
-
-
 
 function renderVisualMedia(visualMedia) {
     const visualMediaHtmlArray = visualMedia.map(function (currentVisualMedia) {
         if (currentVisualMedia.titleType == "tvSeries") {
-        return `<div class="media col-4">
+            return `<div class="media col-4">
         <img id = "resultsTvImage" src="${currentVisualMedia.image.url}"<br/>
             <h2>${currentVisualMedia.title}</h2>
             <time datetime="\`0001\`">${currentVisualMedia.year}</time><br>
@@ -98,9 +66,6 @@ function initMap() {
 }
 
 
-
-
-
 function renderLocation(location) {
     const locationHtml = `<div class="location" col-4">
             <img src="${location.image.url}"<br/>
@@ -124,12 +89,13 @@ function renderLocation(location) {
 document.addEventListener('DOMContentLoaded', function (event) {
 
 
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
         console.log(event.target)
         if (event.target.classList.contains('add-button')) {
             let movieID = event.target.dataset.imdbid
             saveToWatchList(movieID)
         }
-      });
+    });
 
 
+})

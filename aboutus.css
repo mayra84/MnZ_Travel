@@ -1,0 +1,40 @@
+
+#header {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#bodyOfPage {
+    font-family: 'Rubik', sans-serif;
+}
+
+/* p {
+    color: black;
+} */
+
+.pic {
+    height: 150px;
+    width: 150px;
+    border: 3px solid black;
+    border-radius: 50%;
+    /* display: flex;
+    align-content: center; */
+
+    /* justify-content: center; */
+    
+}
+
+p {
+    padding: 30px;
+}
+
+h2 {
+    padding: 30px;
+}
+
+body {
+    background-image: url(bubbleBackground.png);
+}
+
+.zaria-heading {
+    font-size: 1.85em;
+}

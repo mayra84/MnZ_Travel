@@ -39,6 +39,9 @@ ul {
 }
 
 #results {
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
 
     /* height: 250px;
     width: 250px
@@ -46,6 +49,6 @@ ul {
 }
 
 #movie-img {
-    height: 400px;
-    width: 300
+    height: 350px;
+    width: 300px
 }
