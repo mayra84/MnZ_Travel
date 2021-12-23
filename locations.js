@@ -1,6 +1,20 @@
 // API KEY:8f32460e07msh82e48d9017e28a2p1a1156jsncedaa79245ad
 
 
+// ask lachlan about it tmrw
+// let aroundTheWorld = document.querySelector("#globe")
+
+
+// aroundTheWorld.addEventListener("mouseover", function () {
+//     aroundTheWorld.src = "spinning.gif".style.height
+// })
+
+// aroundTheWorld.addEventListener('mouseout', function() {
+//     aroundTheWorld.src = "3d-Earth-Globe.png"
+//   })
+
+
+
 
 const searchForm = document.querySelector("#search-form");
 searchForm.addEventListener('submit', function (event) {
@@ -28,7 +42,6 @@ searchForm.addEventListener('submit', function (event) {
         })
 })
 
-
 // fetch("https://imdb8.p.rapidapi.com/title/find?q=game%20of%20thr", {
 //         "method": "GET",
 //         "headers": {
@@ -47,23 +60,22 @@ searchForm.addEventListener('submit', function (event) {
 
 function renderVisualMedia(visualMedia) {
     const visualMediaHtmlArray = visualMedia.map(function (currentVisualMedia) {
-        const id = currentVisualMedia.id.replace(/\/title\/(tt\d+).*/,"$1")
         if (currentVisualMedia.titleType == "tvSeries") {
         return `<div class="media col-4">
-        <img src="${currentVisualMedia.image?.url||"poster.jpeg"}"<br/>
+        <img id = "resultsTvImage" src="${currentVisualMedia.image.url}"<br/>
             <h2>${currentVisualMedia.title}</h2>
             <time datetime="\`0001\`">${currentVisualMedia.year}</time><br>
             <div class="type">${currentVisualMedia.titleType}</div>
-            <a href="/map.html?id=${id}" class="explore-button">Explore Me!</a><br/>
+            <button class="add-button" data-imdbid="${currentVisualMedia.imdbID}">Explore Me!</button><br/>
             </div>
             `
         } else if (currentVisualMedia.titleType == 'movie') {
             return `<div class="media col-4">
-        <img src="${currentVisualMedia.image.url}"<br/>
+        <img id = "resultsMovieImage" src="${currentVisualMedia.image.url}"<br/>
             <h2>${currentVisualMedia.title}</h2>
             <time datetime="\`0001\`">${currentVisualMedia.year}</time><br>
             <div class="type">${currentVisualMedia.titleType}</div>
-            <a href="/map.html?id=${id}" class="explore-button">Explore Me!</a><br/>
+            <button class="add-button" data-imdbid="${currentVisualMedia.imdbID}">Explore Me!</button><br/>
             </div>
             `
         } else {
@@ -71,7 +83,6 @@ function renderVisualMedia(visualMedia) {
             return ""
         }
     });
-   
 
     results = document.querySelector("#results");
     results.innerHTML = visualMediaHtmlArray.join('')
@@ -87,12 +98,15 @@ function initMap() {
 }
 
 
+
+
+
 function renderLocation(location) {
     const locationHtml = `<div class="location" col-4">
             <img src="${location.image.url}"<br/>
             <h2>${location.title}</h2>
             <time datetime="\`0001\`">${location.year}</time><br>
-            <button class="explore-button" data-imdbid="${location.imdbID}">Add Me!</button><br/>
+            <button class="add-button" data-imdbid="${location.imdbID}">Add Me!</button><br/>
             </div>
             `
 
@@ -109,14 +123,16 @@ function renderLocation(location) {
 
 document.addEventListener('DOMContentLoaded', function (event) {
 
-    // Maybe have a "save destination"????
+
     document.addEventListener('click', function(event) {
         console.log(event.target)
-        if (event.target.classList.contains('explore-button')) {
-            let movieID = event.target.dataset.id
-            renderMovieToMap(movieID)
+        if (event.target.classList.contains('add-button')) {
+            let movieID = event.target.dataset.imdbid
+            saveToWatchList(movieID)
         }
       });
+
+
 
 
     // fetch("https://imdb8.p.rapidapi.com/title/get-filming-locations?tconst=tt0944947", {
@@ -131,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     //         return response.json()
     //     })
     //     .then(function (data) {
-    //         console.log(data.locations);
+    //         console.log(data.base);
     //         // .base.title
     //         // .locations[20].location
     //         renderLocation(data.base)
@@ -142,27 +158,3 @@ document.addEventListener('DOMContentLoaded', function (event) {
     //     });
 
 });
-
-
-// function renderMovieToMap (movieID) {
-    
-//     const movie = movieData.find(function(currentMovie){ 
-//         return currentMovie.imdbID == movieID; 
-// });
-
-// let watchlistJSON = localStorage.getItem('watchlist');
-// let watchlist = JSON.parse(watchlistJSON);
-
-//     if (watchlist == null) {
-//         watchlist = []
-//     }
-
-//     watchlist.push(movie);
-//     watchlistJSON = JSON.stringify(watchlist);
-//     localStorage.setItem('watchlist', watchlistJSON);
-
-//     console.log(watchlist)
-
-//     console.log(movie)
-    
-// }

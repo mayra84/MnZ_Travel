@@ -10,7 +10,6 @@ function renderVisualMedia(visualMedia) {
             <h2>${visualMedia.title}</h2>
             <time datetime="\`0001\`">${visualMedia.year}</time><br>
             <div class="type">${visualMedia.titleType}</div>
-            
             </div>
             `
 
@@ -28,7 +27,6 @@ function initMap() {
         center: ({ lat: 0, lng: 0 }),
         zoom: 2,
     });
-
 
     //Set Marker function
     function addMarker(location, movie, name) {
@@ -71,7 +69,7 @@ function initMap() {
                 const lat = response.data.results[0].geometry.location.lat;
                 const lng = response.data.results[0].geometry.location.lng;
 
-               
+
                 printPlace(location, lat, lng)
                 addMarker({ lat: lat, lng: lng }, movie, location)
 
@@ -144,24 +142,24 @@ document.addEventListener('DOMContentLoaded', function (event) {
 // Does code for 
 // change list item for accordion 
 let placeID = 1
-function printPlace (name, lat, lng) {
-    
+function printPlace(name, lat, lng) {
+
     const placesList = document.querySelector("#list-of-places")
-    
-    
-        const listItem =  document.createElement("div")
-        listItem.classList.add("accordion-item")
-        placesList.appendChild(listItem)
-        console.log(location)
-        getWebcam(lat, lng)
+
+
+    const listItem = document.createElement("div")
+    listItem.classList.add("accordion-item")
+    placesList.appendChild(listItem)
+    console.log(location)
+    getWebcam(lat, lng)
         .then(webcams => {
-            
+
             const webcamHTML = webcams.map(cam => {
                 console.log(cam)
                 return `<img src="${cam.image.current.preview}">
                 
                 `
-            }) 
+            })
             const locationHTML = `
             
     <h2 class="accordion-header" id="headingOne">
@@ -176,7 +174,7 @@ function printPlace (name, lat, lng) {
     </div>
     `
             listItem.innerHTML += locationHTML
-            placeID ++
+            placeID++
         })
 }
 
@@ -217,10 +215,10 @@ function getWebcam(lat, lng) {
             "x-rapidapi-key": "750787b786msh3494b73242ba7b4p1baff1jsnca241a92c7a4"
         }
     })
-    .then(res => res.json())
+        .then(res => res.json())
         .then(response => {
             console.log(response);
-            return response.result.webcams 
+            return response.result.webcams
         })
         .catch(err => {
             console.error(err);
@@ -729,50 +727,3 @@ function getFakeLocations() {
 
 
 
-
-
-
-
-
-
-// function renderLocation(location) {
-//     const locationHtmlArray = location.map(function (currentLocation) {
-//         return `<div class="location" col-4">
-//             <img src="${currentLocation.image}"<br/>
-//             <h2>${currentLocation.title}</h2>
-//             <time datetime="\`0001\`">${currentLocation.Year}</time><br>
-//             <button class="add-button" data-imdbid="${currentLocation.imdbID}">Add Me!</button><br/>
-//             </div>
-//             `
-//     });
-
-//     results = document.querySelector("#results");
-//     results.innerHTML = locationHtmlArray.join('')
-// };
-
-
-// document.addEventListener('DOMContentLoaded', function (event) {
-
-
-//     fetch("https://imdb8.p.rapidapi.com/title/get-filming-locations?tconst=tt0944947", {
-//         "method": "GET",
-//         "headers": {
-//             "x-rapidapi-host": "imdb8.p.rapidapi.com",
-//             "x-rapidapi-key": "750787b786msh3494b73242ba7b4p1baff1jsnca241a92c7a4"
-//         }
-//     })
-//         .then(response => {
-
-//             return response.json()
-//         })
-//         .then(function (data) {
-//             console.log(data.base);
-//             // .base.title
-//             // .locations[20].location
-//             renderLocation(data.base)
-
-//         })
-//         .catch(err => {
-//             console.error(err);
-//         });
-// });

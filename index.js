@@ -29,7 +29,7 @@ searchForm.addEventListener('submit', function (event) {
 function renderVisualMedia(visualMedia) {
     const visualMediaHtmlArray = visualMedia.map(function (currentVisualMedia) {
         if (currentVisualMedia.titleType == "tvSeries") {
-        return `<div class="media col-4">
+            return `<div class="media col-4">
         <img id = "resultsTvImage" src="${currentVisualMedia.image.url}"<br/>
             <h2>${currentVisualMedia.title}</h2>
             <time datetime="\`0001\`">${currentVisualMedia.year}</time><br>
@@ -89,94 +89,13 @@ function renderLocation(location) {
 document.addEventListener('DOMContentLoaded', function (event) {
 
 
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
         console.log(event.target)
         if (event.target.classList.contains('add-button')) {
             let movieID = event.target.dataset.imdbid
             saveToWatchList(movieID)
         }
-      });
+    });
 
 
-
-
-    // fetch("https://imdb8.p.rapidapi.com/title/get-filming-locations?tconst=tt0944947", {
-    //     "method": "GET",
-    //     "headers": {
-    //         "x-rapidapi-host": "imdb8.p.rapidapi.com",
-    //         "x-rapidapi-key": "750787b786msh3494b73242ba7b4p1baff1jsnca241a92c7a4"
-    //     }
-    // })
-    //     .then(response => {
-
-    //         return response.json()
-    //     })
-    //     .then(function (data) {
-    //         console.log(data.base);
-    //         // .base.title
-    //         // .locations[20].location
-    //         renderLocation(data.base)
-
-    //     })
-    //     .catch(err => {
-    //         console.error(err);
-    //     });
-
-});
-
-
-function saveToWatchList (movieID) {
-    
-    const movie = movieData.find(function(currentMovie){ 
-        return currentMovie.imdbID == movieID; 
-});
-
-let watchlistJSON = localStorage.getItem('watchlist');
-let watchlist = JSON.parse(watchlistJSON);
-
-    if (watchlist == null) {
-        watchlist = []
-    }
-
-    watchlist.push(movie);
-    watchlistJSON = JSON.stringify(watchlist);
-    localStorage.setItem('watchlist', watchlistJSON);
-
-    console.log(watchlist)
-
-    console.log(movie)
-    
-}
-
-
-
-
-
-// API KEY:AIzaSyCTyX4izBaLSUMvtZMxEjOCPo_IpDJITRs
-
-
-// ask lachlan about it tmrw
-// let aroundTheWorld = document.querySelector("#globe")
-
-
-// aroundTheWorld.addEventListener("mouseover", function () {
-//     aroundTheWorld.src = "spinning.gif".style.height
-// })
-
-// aroundTheWorld.addEventListener('mouseout', function() {
-//     aroundTheWorld.src = "3d-Earth-Globe.png"
-//   })
-
-// fetch("https://imdb8.p.rapidapi.com/title/find?q=game%20of%20thr", {
-//         "method": "GET",
-//         "headers": {
-//             "x-rapidapi-host": "imdb8.p.rapidapi.com",
-//             "x-rapidapi-key": "750787b786msh3494b73242ba7b4p1baff1jsnca241a92c7a4"
-//         }
-//     })
-//         .then(response => {
-//             console.log(response);
-//         })
-//         .catch(err => {
-//             console.error(err);
-//         });
+})

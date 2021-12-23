@@ -57,3 +57,76 @@ html, body {
 
 
 
+.mainButton {
+  text-decoration: none;
+  color: #fff;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 90px;
+  padding: 0 20px;
+  height: auto;
+  display: inline-block;
+  text-align: center;
+  background: #3d3d3d;
+  margin: 100px 0px 0px 400px;
+  background: rgba(166, 172, 192, 0.39);
+}
+.pill {
+  -webkit-border-radius: 22px;
+  -moz-border-radius: 22px;
+  border-radius: 22px;
+}
+
+
+
+.bar{
+  margin: 130px 20px 0px 0px;
+}
+
+body {
+  background-color: rgba(166, 172, 192, 0.39);
+  
+}
+
+.destination {
+  margin: 0px 20px 0px 0px;
+
+}
+
+.pulse:hover {
+  animation: pulse 2s infinite;
+
+  -moz-transform: scale(1) rotate(0deg) translateY(-1px);
+  -webkit-transform: scale(1) rotate(0deg) translateY(-1px);
+  transform: scale(1) rotate(0deg) translateY(-1px);
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(15, 133, 230, 0.753);
+  }
+  70% {
+    -webkit-box-shadow: 0 0 0 10px rgba(15, 133, 230, 0.753);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 0 10px rgba(64, 168, 116, 0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0px 0px 0px 0px rgba(13, 104, 240, 0.6);
+    box-shadow: 0px 0px 0px 0px rgba(15, 133, 230, 0.753);
+  }
+
+  70% {
+    -moz-box-shadow: 0px 0px 0px 10px rgba(64, 168, 116, 0.01);
+    box-shadow: 0px 0px 0px 10px rgba(64, 168, 116, 0.01);
+  }
+
+  100% {
+    -moz-box-shadow: 0px 0px 0px 10px rgba(64, 168, 116, 0);
+    box-shadow: 0px 0px 0px 10px rgba(64, 168, 116, 0);
+  }
+}
