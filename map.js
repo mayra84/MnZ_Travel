@@ -1,4 +1,26 @@
 
+
+
+function renderVisualMedia(visualMedia) {
+
+    const id = visualMedia.id.replace(/\/title\/(tt\d+).*/, "$1")
+
+    const html = `<div class="media col-4">
+        <img id="movie-img" src="${visualMedia.image.url}"<br/>
+            <h2>${visualMedia.title}</h2>
+            <time datetime="\`0001\`">${visualMedia.year}</time><br>
+            <div class="type">${visualMedia.titleType}</div>
+            <a href="/map.html?id=${id}" class="explore-button">Explore Me!</a><br/>
+            </div>
+            `
+
+
+    results = document.querySelector("#results");
+    results.innerHTML = html
+};
+
+
+
 //function for maps, sets viewpoint at "center"
 function initMap() {
     let infoWindows = []
@@ -18,7 +40,9 @@ function initMap() {
         const infowindow = new google.maps.InfoWindow({
             content: contentString,
         });
+
 infoWindows.push(infowindow)
+
         marker.addListener("click", () => {
             infoWindows.forEach(i => i.close())
             infowindow.open({
@@ -47,6 +71,11 @@ infoWindows.push(infowindow)
 
                 const lat = response.data.results[0].geometry.location.lat;
                 const lng = response.data.results[0].geometry.location.lng;
+
+
+               
+                printPlace(location, lat, lng)
+
                 addMarker({ lat: lat, lng: lng }, movie, location)
 
             })
@@ -61,6 +90,8 @@ infoWindows.push(infowindow)
     getLocations(id)
 
         .then(function (data) {
+            // Use data.base to display movie information
+            renderVisualMedia(data.base)
             for (let i = 0; i < data.locations.length; i++) {
                 console.log(data.locations[i].location);
                 geocode(data.locations[i].location, data.base)
@@ -68,6 +99,7 @@ infoWindows.push(infowindow)
 
             }
 
+            // put data into global variable
 
         })
         .catch(err => {
@@ -88,6 +120,98 @@ function getLocations(id) {
             return response.json()
         })
 }
+
+// saveLocation function
+
+document.addEventListener('DOMContentLoaded', function (event) {
+
+    // Maybe have a "save destination"????
+    document.addEventListener('click', function (event) {
+        console.log(event.target)
+
+        if (event.target.classList.contains('save-button')) {
+            // use global variable to push the data into the local storage array
+            let movieID = event.target.dataset.imdbid
+            saveToWatchList(movieID)
+            // insert global variable here ^
+        }
+    });
+
+
+
+
+});
+
+
+// Print places on map page
+// Does code for 
+// change list item for accordion 
+function printPlace (name, lat, lng) {
+    
+    const placesList = document.querySelector("#list-of-places")
+    
+    
+        const listItem =  document.createElement("li")
+        listItem.innerHTML = name
+        placesList.appendChild(listItem)
+        console.log(location)
+        getWebcam(lat, lng)
+        .then(webcams => {
+            const webcamHTML = webcams.map(cam => {
+                console.log(cam)
+                return `<img src="${cam.image.current.preview}">`
+            })
+            listItem.innerHTML += webcamHTML
+        })
+}
+
+{/* <img src="${location.image.url}"<br/> */ }
+// <time datetime="\`0001\`">${location.year}</time><br>
+// <button class="explore-button" data-imdbid="${location.imdbID}">Add Me!</button><br/>
+// </div>
+
+// Get webcam 
+
+
+
+
+
+
+
+
+
+
+
+function getWebcam(lat, lng) {
+    // const locationHtml = `<div class="location" col-4">
+    //         <h2>${location.url}</h2>
+    //         `
+
+    // results = document.querySelector("#webcam");
+    // results = locationHtml
+
+    // const webcam = new google.maps.Marker({
+    //     position: location,
+    //     map: map
+    // })
+    // Using lat & lan coordinates to pass into the fetch url
+    return fetch(`https://webcamstravel.p.rapidapi.com/webcams/list/nearby=${lat},${lng},25?lang=en&show=webcams%3Aimage%2Clocation`, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "webcamstravel.p.rapidapi.com",
+            "x-rapidapi-key": "750787b786msh3494b73242ba7b4p1baff1jsnca241a92c7a4"
+        }
+    })
+    .then(res => res.json())
+        .then(response => {
+            console.log(response);
+            return response.result.webcams 
+        })
+        .catch(err => {
+            console.error(err);
+        });
+}
+
 
 
 function getFakeLocations() {
