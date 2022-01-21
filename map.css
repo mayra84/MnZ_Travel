@@ -1,54 +1,49 @@
-#map {
-    height: 90%;
-    width: 79%;
-    margin: 100px 10px 10px 100px;
-    padding: 300px;
-}
-
 body {
-    background-image: url(bubbleBackground.png);
+    background-image: url(pics/bubbleBackground.png);
+}
+#buttons {
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 0;
 }
 
-
-h4 {
-    font-size: 30px;
-
-}
 
 .mainButton {
+    width: 10%;
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 2rem;
     font: bold 11px Arial;
+    color: white;
     text-decoration: none;
-    background-color: #EEEEEE;
-    color: #333333;
-    padding: 2px 6px 2px 6px;
-    border-top: 1px solid #CCCCCC;
-    border-right: 1px solid #333333;
-    border-bottom: 1px solid #333333;
-    border-left: 1px solid #CCCCCC;
-  }
-
-  #map {
-    height: 90%;
-    width: 79%;
-    margin: 100px 10px 10px 100px;
-    padding: 300px;
+    background-color: #4e4949;
 }
 
-ul {
-    border: 2px solid red;
+.mainButton:hover {
+    color: rgb(199, 255, 199);
 }
 
 #results {
     display: flex;
-    justify-content: center;
-    padding-top: 40px;
+    /* padding-top: 40px; */
+    height: 20rem;
+    width: 250px;
+    margin: auto auto 9rem auto;
+    text-align: center;
+}
 
-    /* height: 250px;
-    width: 250px
-     */
+
+#map {
+    height: 90%;
+    width: 79%;
+    margin: 0 auto;
+    padding: 300px;
+    border: 2px solid green;
 }
 
 #movie-img {
-    height: 350px;
-    width: 300px
+    padding: 2%;
+    margin: 2rem, 3rem;
+    height: 100%;
+    width: auto;
 }
