@@ -34,11 +34,12 @@ body {
 
 
 #map {
-    height: 90%;
+    height: 100%;
     width: 79%;
     margin: 0 auto;
     padding: 300px;
     border: 2px solid green;
+    border-radius: 15px;
 }
 
 #movie-img {
