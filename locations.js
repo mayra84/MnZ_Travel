@@ -1,21 +1,5 @@
 // API KEY:8f32460e07msh82e48d9017e28a2p1a1156jsncedaa79245ad
 
-
-// ask lachlan about it tmrw
-// let aroundTheWorld = document.querySelector("#globe")
-
-
-// aroundTheWorld.addEventListener("mouseover", function () {
-//     aroundTheWorld.src = "spinning.gif".style.height
-// })
-
-// aroundTheWorld.addEventListener('mouseout', function() {
-//     aroundTheWorld.src = "3d-Earth-Globe.png"
-//   })
-
-
-
-
 const searchForm = document.querySelector("#search-form");
 searchForm.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -41,20 +25,6 @@ searchForm.addEventListener('submit', function (event) {
             renderVisualMedia(data.results)
         })
 })
-
-// fetch("https://imdb8.p.rapidapi.com/title/find?q=game%20of%20thr", {
-//         "method": "GET",
-//         "headers": {
-//             "x-rapidapi-host": "imdb8.p.rapidapi.com",
-//             "x-rapidapi-key": "750787b786msh3494b73242ba7b4p1baff1jsnca241a92c7a4"
-//         }
-//     })
-//         .then(response => {
-//             console.log(response);
-//         })
-//         .catch(err => {
-//             console.error(err);
-//         });
 
 
 
@@ -132,29 +102,5 @@ document.addEventListener('DOMContentLoaded', function (event) {
         }
       });
 
-
-
-
-    // fetch("https://imdb8.p.rapidapi.com/title/get-filming-locations?tconst=tt0944947", {
-    //     "method": "GET",
-    //     "headers": {
-    //         "x-rapidapi-host": "imdb8.p.rapidapi.com",
-    //         "x-rapidapi-key": "750787b786msh3494b73242ba7b4p1baff1jsnca241a92c7a4"
-    //     }
-    // })
-    //     .then(response => {
-
-    //         return response.json()
-    //     })
-    //     .then(function (data) {
-    //         console.log(data.base);
-    //         // .base.title
-    //         // .locations[20].location
-    //         renderLocation(data.base)
-
-    //     })
-    //     .catch(err => {
-    //         console.error(err);
-    //     });
 
 });

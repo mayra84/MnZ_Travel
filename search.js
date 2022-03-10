@@ -29,22 +29,6 @@ searchForm.addEventListener('submit', function (event) {
 })
 
 
-// fetch("https://imdb8.p.rapidapi.com/title/find?q=game%20of%20thr", {
-//         "method": "GET",
-//         "headers": {
-//             "x-rapidapi-host": "imdb8.p.rapidapi.com",
-//             "x-rapidapi-key": "750787b786msh3494b73242ba7b4p1baff1jsnca241a92c7a4"
-//         }
-//     })
-//         .then(response => {
-//             console.log(response);
-//         })
-//         .catch(err => {
-//             console.error(err);
-//         });
-
-
-
 function renderVisualMedia(visualMedia) {
     const visualMediaHtmlArray = visualMedia.map(function (currentVisualMedia) {
         const id = currentVisualMedia.id.replace(/\/title\/(tt\d+).*/,"$1")
@@ -71,13 +55,12 @@ function renderVisualMedia(visualMedia) {
             return ""
         }
     });
-   
+
 
     results = document.querySelector("#results");
     results.innerHTML = visualMediaHtmlArray.join('')
 };
 
-// const visualMedia = document.querySelector("#house");
 
 function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
@@ -100,12 +83,7 @@ function renderLocation(location) {
     results.innerHTML = locationHtml
 };
 
-
-
 // access title
-
-
-
 
 document.addEventListener('DOMContentLoaded', function (event) {
 
@@ -117,52 +95,4 @@ document.addEventListener('DOMContentLoaded', function (event) {
             renderMovieToMap(movieID)
         }
       });
-
-
-    // fetch("https://imdb8.p.rapidapi.com/title/get-filming-locations?tconst=tt0944947", {
-    //     "method": "GET",
-    //     "headers": {
-    //         "x-rapidapi-host": "imdb8.p.rapidapi.com",
-    //         "x-rapidapi-key": "750787b786msh3494b73242ba7b4p1baff1jsnca241a92c7a4"
-    //     }
-    // })
-    //     .then(response => {
-
-    //         return response.json()
-    //     })
-    //     .then(function (data) {
-    //         console.log(data.locations);
-    //         // .base.title
-    //         // .locations[20].location
-    //         renderLocation(data.base)
-
-    //     })
-    //     .catch(err => {
-    //         console.error(err);
-    //     });
-
 });
-
-
-// function renderMovieToMap (movieID) {
-    
-//     const movie = movieData.find(function(currentMovie){ 
-//         return currentMovie.imdbID == movieID; 
-// });
-
-// let watchlistJSON = localStorage.getItem('watchlist');
-// let watchlist = JSON.parse(watchlistJSON);
-
-//     if (watchlist == null) {
-//         watchlist = []
-//     }
-
-//     watchlist.push(movie);
-//     watchlistJSON = JSON.stringify(watchlist);
-//     localStorage.setItem('watchlist', watchlistJSON);
-
-//     console.log(watchlist)
-
-//     console.log(movie)
-    
-// }

@@ -10,7 +10,7 @@ html, body {
 
 
   body {
-    background-image: url(bubbleBackground.png);
+    background-image: url(pics/bubbleBackground.png);
 }
 
 
@@ -43,4 +43,21 @@ img {
     color: gray;
     margin-left: 30px;
     font-size: 20px;
+}
+
+
+.media {
+    text-align: center;
+    padding: 1rem;
+}
+
+.explore-button {
+    justify-content: center;
+    width: 5%;
+    margin: 0 auto;
+    padding: 10px;
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1rem;
+    color: rgb(13, 129, 175);
 }

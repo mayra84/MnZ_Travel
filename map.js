@@ -5,22 +5,20 @@ function renderVisualMedia(visualMedia) {
 
     const id = visualMedia.id.replace(/\/title\/(tt\d+).*/, "$1")
 
-    const html = `<div class="media col-4">
+    const html = `<div class="media">
         <img id="movie-img" src="${visualMedia.image.url}"<br/>
             <h2>${visualMedia.title}</h2>
             <time datetime="\`0001\`">${visualMedia.year}</time><br>
             <div class="type">${visualMedia.titleType}</div>
             </div>
             `
-
-
     results = document.querySelector("#results");
     results.innerHTML = html
 };
 
 
 
-//function for maps, sets viewpoint at "center"
+//function for map initialization, sets viewpoint at "center"
 function initMap() {
     let infoWindows = []
     map = new google.maps.Map(document.getElementById("map"), {
@@ -55,7 +53,6 @@ function initMap() {
 
     //Geocode API used here to get latitude and Longitude
     function geocode(location, movie) {
-        // const location = '22 Main st Boston MA';
         axios.get("https://maps.googleapis.com/maps/api/geocode/json", {
             params: {
                 address: location,
