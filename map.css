@@ -13,14 +13,14 @@ body {
     margin: 1rem;
     padding: 0.5rem;
     border-radius: 2rem;
-    font: bold 11px Arial;
+    font: bold 15px Arial;
     color: white;
     text-decoration: none;
     background-color: #4e4949;
 }
 
 .mainButton:hover {
-    color: rgb(199, 255, 199);
+    color: rgb(115, 177, 248);
 }
 
 #results {
@@ -47,4 +47,9 @@ body {
     margin: 2rem, 3rem;
     height: 100%;
     width: auto;
+    border-radius: 17px;
+}
+
+.accordion-button {
+    padding: 20px;
 }
