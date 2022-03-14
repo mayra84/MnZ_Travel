@@ -34,7 +34,7 @@ function renderVisualMedia(visualMedia) {
         const id = currentVisualMedia.id.replace(/\/title\/(tt\d+).*/,"$1")
         if (currentVisualMedia.titleType == "tvSeries") {
         return `<div class="media col-4">
-        <img src="${currentVisualMedia.image?.url||"poster.jpeg"}"<br/>
+        <img src="${currentVisualMedia.image?.url || "../pics/poster.jpeg"}"<br/>
             <h2>${currentVisualMedia.title}</h2>
             <time datetime="\`0001\`">${currentVisualMedia.year}</time><br>
             <div class="type">${currentVisualMedia.titleType}</div>
@@ -43,7 +43,7 @@ function renderVisualMedia(visualMedia) {
             `
         } else if (currentVisualMedia.titleType == 'movie') {
             return `<div class="media col-4">
-        <img src="${currentVisualMedia.image.url}"<br/>
+        <img src="${currentVisualMedia.image?.url || "../pics/poster.jpeg"}"<br/>
             <h2>${currentVisualMedia.title}</h2>
             <time datetime="\`0001\`">${currentVisualMedia.year}</time><br>
             <div class="type">${currentVisualMedia.titleType}</div>
