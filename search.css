@@ -15,7 +15,6 @@ body {
 }
 
 
-
 img {
     height: 400px;
     width: 340px;
@@ -65,3 +64,7 @@ img {
     color: rgb(13, 129, 175);
 }
 
+.btn, .btn:hover {
+    background-color: rgb(13, 129, 175);
+    text-decoration: none;
+}
