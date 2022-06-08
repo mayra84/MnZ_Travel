@@ -12,7 +12,7 @@ a{
 }
 
 body {
-  background-color: rgba(142, 152, 183, 0.39);
+  /* background-color: rgba(142, 152, 183, 0.39); */
 }
 
 .header{
@@ -20,9 +20,10 @@ body {
   overflow:hidden;
   display:flex;
   flex-wrap: wrap;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: flex-start;
   align-content: flex-start;
+  flex-direction: column;
   height:40vw;
   min-height:600px;
   max-height:650px;
@@ -31,11 +32,19 @@ body {
 }
 
 .sides {
+  margin: 0 auto;
     display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+    align-self: flex-start;
     flex-direction: row;
     padding: 20px;
-    margin:-50px 550px 0px 0px;
+    
+    /* margin:-50px 550px 0px 0px; */
 }
+
+
 
 .header:after{
   content:"";
@@ -58,17 +67,17 @@ body {
     -webkit-transform: translateZ(0); backface-visibility: hidden;
   /* scale(1.0, 1.0); */
     transform: translateZ(0);
-  background:#1B2030 url(pics/lotr.jpg) 50% 0 no-repeat;
+  background:#1B2030 url(https://storage.needpix.com/rsynced_images/new-zealand-922396_1280.jpg) 50% 0 no-repeat;
   background-size:100%;
   background-attachment:fixed;
-  animation: grow 360s linear 10ms infinite;
+  animation: grow 150s linear 10ms infinite;
   transition:all 0.4s ease-in-out;
   z-index: -2;
 }
 .header a{
   color:#eee
 }
-.menu{
+/* .menu{
   display:block;
   width:40px;
   height:30px;
@@ -91,7 +100,7 @@ body {
   left:0;
   right:0;
   box-shadow:0 8px, 0 16px
-}
+} */
 
 .logo{
   border-radius:3px;
@@ -99,6 +108,7 @@ body {
   display:inline-flex;
   align-items:center;
   align-content:center;
+  justify-content: center;
   margin-top:50px;
   padding:0px 10px;
   font-weight:900;
@@ -112,14 +122,17 @@ body {
 .info {
   font-size: 0.7rem;
   width:100%;
-  padding: 3% 10% 0 7%;
+  /* padding: 3% 10% 0 7%; */
   text-align:center;
+  align-items: center;
 }
 
 /* hover on pin for background location info */
 
 .hover-pin {
-  margin: 10rem 75rem 0rem 0rem;
+  margin-top: 5px;
+  align-self: flex-end;
+  /* margin: 10rem 75rem 0rem 0rem; */
 }
 
 .fa-search-location {
@@ -127,6 +140,7 @@ body {
 }
 
 .location{
+  width: 10%;
   opacity: 0%;
   transition: .7s cubic-bezier(0.24,-0.35, 0.6, 1.18);
 }
@@ -139,7 +153,7 @@ body {
 
 @keyframes grow{
   0% { transform: scale(1) translateY(0px)}
-  50% { transform: scale(1.9) translateY(-200px)}
+  50% { transform: scale(1.9) translateY(-150px)}
 }
 
 
@@ -151,20 +165,25 @@ body {
 .mainButton {
   display: flex;
   justify-content: center;
-  width: 50%;
+  width: 40%;
   margin: 0 auto;
-  margin-top: 130px;
+  /* margin-top: 130px; */
   text-decoration: none;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 5rem;
-  color: white;
+  /* font-family: 'Josefin Sans', sans-serif; */
+  font-size: 2rem;
+  /* color: white; */
+  background-color: rgba(142, 152, 183, 0.39);
 }
 
 .pill {
-  color: white;
-  -webkit-border-radius: 22px;
-  -moz-border-radius: 22px;
-  border-radius: 22px;
+  /* color: white; */
+  background-color: rgba(142, 152, 183, 0.39);
+  box-shadow: 0px 2px 12px -5px rgb(0, 77, 128);
+  background-color: rgba(142, 152, 183, 0);
+  /* margin: 1rem; */
+  /* -webkit-border-radius: 22px;
+  -moz-border-radius: 22px; */
+  /* border-radius: 22px; */
 }
 
 .pulse:hover {
@@ -177,8 +196,12 @@ transform: scale(1) rotate(0deg) translateY(-1px);
 .mid {
   display: flex;
   flex-direction: column;
-  width: 50%;
-  margin: 0 auto;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  /* width: 40%; */
+  /* margin: 0 auto; */
+  /* align-self: flex-start; */
 }
 
 .child {
@@ -188,7 +211,18 @@ transform: scale(1) rotate(0deg) translateY(-1px);
   box-shadow: 0px 2px 12px -5px rgb(0, 77, 128);
   background-color: rgba(142, 152, 183, 0);
   margin: 1rem;
-  font-family: 'Josefin Sans', sans-serif;
+  /* font-family: 'Josefin Sans', sans-serif; */
+  width: 50%;
+}
+
+.destination-image {
+  height: 100%;
+  width: 100%;
+}
+
+.destination-link {
+  font-size: 1.5rem;
+  text-decoration: underline;
 }
 
 .fab {

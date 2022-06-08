@@ -8,7 +8,7 @@ html{
 a{
   text-decoration:none;
 }
-.header{
+/* .header{
   position:relative;
   overflow:hidden;
   display:flex;
@@ -21,7 +21,7 @@ a{
   max-height:550px;
   min-width:300px;
   color:#eee;
-}
+} */
 
 .sides {
     display: flex;
@@ -54,7 +54,7 @@ a{
   background:#1B2030 url(https://images.unsplash.com/photo-1571993142257-eae0b44cf0f1?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ) 50% 0 no-repeat;
   background-size:100%;
   background-attachment:fixed;
-  animation: grow 360s  linear 10ms infinite;
+  animation: grow 150s  linear 10ms infinite;
   transition:all 0.4s ease-in-out;
   z-index:-2
 }
@@ -102,7 +102,7 @@ a{
 }
 .sides, .info{
   flex: 0 0 auto;
-  width:50%
+  /* width:50% */
 }
 .info{
   width:100%;
