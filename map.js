@@ -5,11 +5,16 @@ function renderVisualMedia(visualMedia) {
 
     const id = visualMedia.id.replace(/\/title\/(tt\d+).*/, "$1")
 
-    const html = `<div class="media">
-        <img id="movie-img" src="${visualMedia.image.url}"<br/>
-            <h2>${visualMedia.title}</h2>
-            <time datetime="\`0001\`">${visualMedia.year}</time><br>
-            <div class="type">${visualMedia.titleType}</div>
+    const html = `
+    <div class="col">
+    <div class="card shadow-lg p-3 mb-5 bg-body rounded" style="width: 18rem;">
+        <img id="movie-img" class="card-img-top" src="${visualMedia.image.url}"<br/>
+        <div class="card-body">     
+        <h5 class="card-title">${visualMedia.title}</h5>
+            <p><time datetime="\`0001\`">${visualMedia.year}</time><br>
+            <div class="type">${visualMedia.titleType}</div></p>
+            </div>
+            </div>
             </div>
             `
     results = document.querySelector("#results");
@@ -153,10 +158,10 @@ function printPlace(name, lat, lng) {
 
             const webcamHTML = webcams.map(cam => {
                 console.log(cam)
-                return `<img src="${cam.image.current.preview}">
+                return `<img class="accordion-img" src="${cam.image.current.preview}">
                 
                 `
-            })
+            }).join(" ")
             const locationHTML = `
             
     <h2 class="accordion-header" id="headingOne">

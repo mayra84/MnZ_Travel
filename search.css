@@ -2,24 +2,198 @@
     height: 100%;
 }
 
-html, body {
+.header{
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-direction: column;
+    height:40vw;
+    min-height:600px;
+    max-height:650px;
+    min-width:300px;
+    color:#eee;
+}
+
+.navbar-toggler {
+    background-color: white;
+    align-self: flex-end;
+  }
+
+.sides {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+    align-self: flex-start;
+    flex-direction: row;
+    padding: 20px;
+
+    /* margin:-50px 550px 0px 0px; */
+}
+
+.header:after{
+    content:"";
+    width:100%;
+    height:100%;
+    position:absolute;
+    bottom:0;
+    left:0;
+    z-index:-1;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.39) 40%,rgba(70, 53, 53, 0.472) 100%);
+}
+
+.header:before{
+    content:"";
+    width:100%;
+    height:200%;
+    position:absolute;
+    top:0;
+    left:0;
+        -webkit-backface-visibility: hidden;
+        -webkit-transform: translateZ(0); backface-visibility: hidden;
+    /* scale(1.0, 1.0); */
+        transform: translateZ(0);
+    background:#1B2030 url(https://storage.needpix.com/rsynced_images/new-zealand-922396_1280.jpg) 50% 0 no-repeat;
+    background-size:100%;
+    background-attachment:fixed;
+    animation: grow 150s linear 10ms infinite;
+    transition:all 0.4s ease-in-out;
+    z-index: -2;
+}
+.header a{
+    color:#eee
+}
+
+@media only screen and (max-width: 600px) {
+.header {
+    min-height: 200px;
+    /* align-content: space-between !important; */
+}
+
+h1 {
+    font-size: 25px !important;
+  }
+
+.info {
+    width: 50% !important;
+    padding: 0px !important;
+}
+
+.child {
+    width: 97% !important;
+}
+
+.px-4 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  img {
+      margin: 0 auto;
+      max-width: 70%;
+  }
+
+  input {
+      /* size: 10% !important; */
+      font-size: 90% !important;
+  }
+
+  button {
+      font-size: 90% !important;
+  }
+
+  }
+
+
+/* .menu{
+display:block;
+width:40px;
+height:30px;
+border:2px solid #fff;
+border-radius:3px;
+position:absolute;
+right:20px;
+top:0px;
+text-decoration:none
+}
+.menu:after{
+content:"";
+display:block;
+width:20px;
+height:3px;
+background:#fff;
+position:absolute;
+margin:0 auto;
+top:5px;
+left:0;
+right:0;
+box-shadow:0 8px, 0 16px
+} */
+
+.logo{
+    border-radius:3px;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    align-content:center;
+    justify-content: center;
+    margin-top:50px;
+    padding:0px 10px;
+    font-weight:900;
+    font-size:1.1em;
+    line-height:1;
+    box-sizing:border-box;
+    height:40px
+}
+
+
+.info {
+    font-size: 0.7rem;
+    width:100%;
+    /* padding: 3% 10% 0 7%; */
+    text-align:center;
+    align-items: center;
+}
+
+@keyframes grow{
+    0% { transform: scale(1) translateY(0px)}
+    50% { transform: scale(1.9) translateY(-150px)}
+  }
+
+/* img {
     height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-
-body {
-    /* background-color: #333333; */
-    background-image: url(pics/bubbleBackground.png);
-}
-
-
-img {
-    height: 400px;
-    width: 340px;
+    width: 100%;
     border-radius: 7px;
     box-shadow: 1px 1px 10px black;
+} */
+
+.card-img-top img {
+    position: relative;
+    z-index: 1;
+    object-fit: contain;
+    object-position: center center;
+   
+}
+  
+.card-img-top{
+    position: relative;
+    background-size: cover;
+    background-position: center center;
+}
+  
+.card-img-top::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
 }
 
 .mainButton {
@@ -49,22 +223,40 @@ img {
 
 
 .media {
+    display: flex;
     text-align: center;
-    padding: 1rem;
+    flex-direction: column;
+    /* padding: 1rem; */
 }
 
-.explore-button {
-    justify-content: center;
-    width: 5%;
+.card {
     margin: 0 auto;
-    padding: 10px;
-    text-decoration: none;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 1rem;
-    color: rgb(13, 129, 175);
+    margin-bottom: 10px;
+}
+
+.card-body {
+    text-align: center;
 }
 
 .btn, .btn:hover {
-    background-color: rgb(13, 129, 175);
+    /* background-color: rgb(13, 129, 175); */
     text-decoration: none;
 }
+
+.container {
+    margin-top: 20px;
+}
+
+.child {
+    display: flex;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    box-shadow: 0px 2px 12px -5px rgb(0, 77, 128);
+    background-color: rgba(142, 152, 183, 0);
+    margin: 1rem;
+    /* font-family: 'Josefin Sans', sans-serif; */
+    width: 40%;
+  }

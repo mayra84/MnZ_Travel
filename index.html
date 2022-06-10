@@ -20,51 +20,84 @@
 </head>
 
 <body>
+
   <header class="header">
-    <div class="sides">
+
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <!-- <a class="navbar-brand" href="index.html">MnZ</a> -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+          </svg></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="search.html">Search</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="about_Us.html">About Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+
+    <!-- <div class="sides">
       <a href="index.html" class="logo">Home</a><br>
       <a href="about_Us.html" class="logo">About Us</a><br>
       <a href="search.html" class="logo">Search</a><br>
       <!-- <a href="locations.html" class="logo">Saved Locations</a><br> -->
-    </div>
-
-    <div class="info">
-      <div class="px-4 py-1 my-5 text-center">
-      <h1 class="display-5 fw-bold">MñZ Inc Movie Travel</h1>
-      <div class="meta">
-        By <a href="about_Us.html" target="_b">MNZ Inc</a> December 2021
-      </div>
-    </div>
-  </div>
-
+    <!-- </div>  -->
     <div class="hover-pin"><i class="fas fa-search-location"></i>
       <div class="location">Misty Mountains,<br> Middle Earth,<br> New Zealand</div>
     </div>
+    
+    <div class="info">
+      <div class="px-4 py-1 my-5 text-center">
+        <h4 class="fw-bold">MñZ Inc </h4>
+        <h1 class="display-5 fw-bold">Movie Travel</h1>
+        <!-- <div class="meta">
+          By <a href="about_Us.html" target="_b">MNZ Inc</a> December 2021
+        </div> -->
+      </div>
+    </div>
+
   </header>
 
 
 
-<div class="mid">
-  <div class="child">
-    <h3>How It Works</h3>
-    <p class="pt-4">Search for your favorite films & tv shows to discover their filming locations. You will even be able to access current views through webcam footage!</p>
+  <div class="mid">
+    <div class="child shadow-lg p-3 mb-5 bg-body rounded">
+      <h3>How It Works</h3>
+      <p class="pt-4">Search for your favorite films & tv shows to discover their filming locations. You will even be
+        able to access current views through webcam footage!</p>
       <article>
-        <br><a href="search.html" class="pulse pill mainButton">Search for Movies</a></br>
+        <br><a href="search.html" class="btn btn-secondary">Search for Movies</a></br>
       </article>
     </div>
   </div>
 
 
   <div class="mid">
-    <div class="child">
+    <div class="child shadow-lg p-3 mb-5 bg-body rounded">
       <h3>Destination of the Month:</h3><br>
-      <a class="destination-link" href="https://www.newzealand.com/us/feature/the-lord-of-the-rings-trilogy-filming-locations/">LOTR
+      <a class="destination-link"
+        href="https://www.newzealand.com/us/feature/the-lord-of-the-rings-trilogy-filming-locations/">LOTR
         Filming Locations: New Zealand</a>
-        <br></br>
-        <br>
-      <img class="destination-image" src="https://wwwflickeringmythc3c8f7.zapwp.com/q:i/r:1/wp:1/w:600/u:https://cdn.flickeringmyth.com/wp-content/uploads/2021/11/Lord-of-the-Rings-The-Hobbit-4k.jpg" />
+      <br></br>
+      <br>
+      <img class="destination-image"
+        src="https://wwwflickeringmythc3c8f7.zapwp.com/q:i/r:1/wp:1/w:600/u:https://cdn.flickeringmyth.com/wp-content/uploads/2021/11/Lord-of-the-Rings-The-Hobbit-4k.jpg" />
     </div>
-    <div class="child git"><a href="https://github.com/Niche-Quiche/Frontend_Project"><i
+    <div class="child git"><a href="https://github.com/mayra84/MnZ_Travel"><i
           class="fab fa-github-square"></i></a><br>
     </div>
   </div>
@@ -77,6 +110,7 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTyX4izBaLSUMvtZMxEjOCPo_IpDJITRs&callback=initMap">
     </script>
   <script src="index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 
 </html>

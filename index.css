@@ -33,18 +33,26 @@ body {
 
 .sides {
   margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    align-content: flex-start;
-    align-self: flex-start;
-    flex-direction: row;
-    padding: 20px;
-    
-    /* margin:-50px 550px 0px 0px; */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+  align-self: flex-start;
+  flex-direction: row;
+  padding: 20px;
+  
+  /* margin:-50px 550px 0px 0px; */
 }
 
+.navbar-toggler {
+  background-color: white;
+  align-self: flex-end;
+}
 
+.container-fluid {
+  justify-content: space-between !important;
+  /* padding-right: 0px !important; */
+}
 
 .header:after{
   content:"";
@@ -67,7 +75,7 @@ body {
     -webkit-transform: translateZ(0); backface-visibility: hidden;
   /* scale(1.0, 1.0); */
     transform: translateZ(0);
-  background:#1B2030 url(https://storage.needpix.com/rsynced_images/new-zealand-922396_1280.jpg) 50% 0 no-repeat;
+  background:#1B2030 url(./pics/lotr.jpg) 50% 0 no-repeat;
   background-size:100%;
   background-attachment:fixed;
   animation: grow 150s linear 10ms infinite;
@@ -77,6 +85,59 @@ body {
 .header a{
   color:#eee
 }
+
+@media only screen and (max-width: 600px) {
+  .header {
+    min-height: 200px;
+    align-content: space-between !important;
+  }
+
+  .container-fluid {
+    /* padding: 0px 0px; */
+  }
+
+  h1 {
+    font-size: 25px !important;
+  }
+
+  .info {
+    width: 50% !important;
+    padding-left: 5px !important;
+  }
+
+  .child {
+    width: 97% !important;
+  }
+
+  .mainButton {
+    display: inline !important;
+    font-size: 1.5rem !important;
+    padding: 4px;
+  }
+
+  .fa-search-location {
+    font-size: 15px !important;
+  }
+
+  .hover-pin {
+    order: 5;
+    /* align-self:flex-start !important; */
+  }
+
+  .location {
+    font-size: 10px !important;
+  }
+
+  .px-4 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  
+}
+
 /* .menu{
   display:block;
   width:40px;
@@ -208,7 +269,7 @@ transform: scale(1) rotate(0deg) translateY(-1px);
   padding: 30px;
   text-decoration: none;
   text-align: center;
-  box-shadow: 0px 2px 12px -5px rgb(0, 77, 128);
+  /* box-shadow: 0px 2px 12px -5px rgb(0, 77, 128); */
   background-color: rgba(142, 152, 183, 0);
   margin: 1rem;
   /* font-family: 'Josefin Sans', sans-serif; */

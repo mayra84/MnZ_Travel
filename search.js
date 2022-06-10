@@ -31,24 +31,35 @@ searchForm.addEventListener('submit', function (event) {
 
 function renderVisualMedia(visualMedia) {
     const visualMediaHtmlArray = visualMedia.map(function (currentVisualMedia) {
-        const id = currentVisualMedia.id.replace(/\/title\/(tt\d+).*/,"$1")
+        const id = currentVisualMedia.id.replace(/\/title\/(tt\d+).*/, "$1")
         if (currentVisualMedia.titleType == "tvSeries") {
-        return `<div class="media col-4">
-        <img src="${currentVisualMedia.image?.url || "../pics/poster.jpeg"}"<br/>
-            <h2>${currentVisualMedia.title}</h2>
-            <time datetime="\`0001\`">${currentVisualMedia.year}</time><br>
-            <div class="type">${currentVisualMedia.titleType}</div>
-            <a href="/map.html?id=${id}" class="explore-button">Explore Me!</a><br/>
+            return `
+        <div class="col">
+        <div class="card shadow-lg p-3 mb-5 bg-body rounded" style="width: 18rem;">
+        <img src="${currentVisualMedia.image?.url || "../pics/poster.jpeg"}" class="card-img-top"/>
+        <div class="card-body">  
+        <h5 class="card-title">${currentVisualMedia.title}</h5>
+            <p><time datetime="\`0001\`">${currentVisualMedia.year}</time><br>
+            <div class="type">${currentVisualMedia.titleType}</div></p>
+            <a href="/map.html?id=${id}" class="btn btn-secondary">Explore Me!</a><br/>
+            </div>
+            </div>
             </div>
             `
         } else if (currentVisualMedia.titleType == 'movie') {
-            return `<div class="media col-4">
-        <img src="${currentVisualMedia.image?.url || "../pics/poster.jpeg"}"<br/>
-            <h2>${currentVisualMedia.title}</h2>
-            <time datetime="\`0001\`">${currentVisualMedia.year}</time><br>
-            <div class="type">${currentVisualMedia.titleType}</div>
-            <a href="/map.html?id=${id}" class="explore-button">Explore Me!</a><br/>
+            return `
+            <div class="col">
+            <div class="card shadow-lg p-3 mb-5 bg-body rounded" style="width: 18rem;">
+        <img src="${currentVisualMedia.image?.url || "../pics/poster.jpeg"}" class="card-img-top"/>
+        <div class="card-body">    
+        <h5 class="card-title">${currentVisualMedia.title}</h5>
+            <p><time datetime="\`0001\`">${currentVisualMedia.year}</time><br>
+            <div class="type">${currentVisualMedia.titleType}</div></p>
+            <a href="/map.html?id=${id}" class="btn btn-secondary">Explore Me!</a><br/>
             </div>
+            </div>
+            </div>
+       
             `
         } else {
             console.log(currentVisualMedia)
@@ -88,11 +99,11 @@ function renderLocation(location) {
 document.addEventListener('DOMContentLoaded', function (event) {
 
     // Maybe have a "save destination"????
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
         console.log(event.target)
         if (event.target.classList.contains('explore-button')) {
             let movieID = event.target.dataset.id
             renderMovieToMap(movieID)
         }
-      });
+    });
 });
